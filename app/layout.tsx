@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import "./globals.css";
+import "./styles/globals.css";
 import "@radix-ui/themes/styles.css";
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
-import Sidebar from "./components/Sidebar";
-import { Button, Flex, Text, Theme } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 
 const dm_sans = DM_Sans({
     weight: [
