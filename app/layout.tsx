@@ -35,10 +35,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${dm_sans.className}`}>
-                <Theme accentColor="lime" >
-                    <div className="mx-auto min-h-screen flex flex-col">
+                <Theme accentColor="lime">
+                    <div className={`${dm_sans.className} mx-auto min-h-screen flex flex-col`}>
                         <AppHeader />
-                        <main className="flex-1 mx-auto">{children}</main>
+                        <main className="flex-1 mx-auto overflow-x-hidden">
+                            {children}
+                        </main>
                         <AppFooter />
                     </div>
                 </Theme>

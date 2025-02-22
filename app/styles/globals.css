@@ -2,4 +2,21 @@
 
 body {
     @apply bg-gray-200;
+    font-family: "DM_Sans";
+    overflow-x: hidden;
 }
+
+@theme {
+    --color-primary-50: oklch(0.97 0.02 120.1);
+    --color-primary-100: oklch(0.94 0.05 120.1);
+    --color-primary-200: oklch(0.89 0.10 120.1);
+    --color-primary-300: oklch(0.85 0.14 120.1);
+    --color-primary-400: oklch(0.82 0.16 120.1);
+    --color-primary-500: oklch(0.80 0.18 120.1);
+    --color-primary-600: oklch(0.72 0.16 120.1);
+    --color-primary-700: oklch(0.63 0.14 120.1);
+    --color-primary-800: oklch(0.54 0.12 120.1);
+    --color-primary-900: oklch(0.45 0.10 120.1);
+  }
+  
+  
