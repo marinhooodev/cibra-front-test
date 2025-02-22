@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${dm_sans.className} bg-surface-100`}>
+            <body className={`${dm_sans.className}`}>
                 <Theme accentColor="lime" >
                     <div className="mx-auto min-h-screen flex flex-col">
                         <AppHeader />
