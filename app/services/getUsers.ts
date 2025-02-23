@@ -8,6 +8,7 @@ export default async function getUsers() {
 
         return {
             success: true,
+            users: data,
             message: "Successfully fetched users",
         }
         

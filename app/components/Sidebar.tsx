@@ -7,7 +7,7 @@ import { IoAdd, IoClose, IoHome, IoTrash } from "react-icons/io5";
 import Link from "next/link";
 
 const Sidebar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
