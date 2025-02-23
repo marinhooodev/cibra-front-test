@@ -27,7 +27,7 @@ Este é o repositório do projeto de teste para a vaga de Front-end. O projeto f
 
 ## Demo 🎬
 
-Confira a aplicação em funcionamento na [Demo](https://cibra-front-test.vercel.app).
+Confira a aplicação em funcionamento na [Demo](https://cibra-front-test.vercel.app){:target="_blank"}.
 
 ## Como Rodar 💻
 
