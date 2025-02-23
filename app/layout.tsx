@@ -36,8 +36,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${dm_sans.className}`}>
-                <Theme accentColor="lime">
-                    <div className={`${dm_sans.className} mx-auto min-h-screen flex flex-col`}>
+                <Theme accentColor="lime" panelBackground="solid">
+                    <div className={`${dm_sans.className} mx-auto min-h-screen flex flex-col bg-gray-100`}>
                         <AppHeader />
                         <main className="flex-1 mx-auto">
                             {children}
