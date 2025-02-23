@@ -20,8 +20,14 @@ Este é o repositório do projeto de teste para a vaga de Front-end. O projeto f
 - **Listagem de Usuários 📋**: Exibe uma lista de usuários com informações de nome, empresa e outras características.
 - **Criação de Usuários 🆕**: Permite adicionar um novo usuário utilizando um formulário validado com `React Hook Form` e persistente via `localStorage`.
 - **Deleção de Usuários 🗑️**: Funcionalidade para remover um usuário da lista, com confirmação de ação.
-- **Persistência com LocalStorage  💾**: Os usuários são armazenados no `localStorage`, garantindo que a lista de usuários persista mesmo após o recarregamento da página.
+- **Barra de Pesquisa 🔍**: Implementação de uma barra de pesquisa que permite filtrar os usuários pelo nome, proporcionando uma navegação mais eficiente.
+- **Persistência com LocalStorage 💾**: Os usuários são armazenados no `localStorage`, garantindo que a lista de usuários persista mesmo após o recarregamento da página.
 - **Responsividade e Mobile-First 📱**: A aplicação foi desenvolvida com uma abordagem mobile-first, utilizando o Tailwind CSS para garantir uma boa experiência em diferentes dispositivos, começando sempre pela experiência móvel.
+
+
+## Demo 🎬
+
+Confira a aplicação em funcionamento na [Demo](https://cibra-front-test.vercel.app).
 
 ## Como Rodar 💻
 
