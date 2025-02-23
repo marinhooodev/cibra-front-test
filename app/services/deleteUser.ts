@@ -1,11 +1,10 @@
-import { revalidatePath } from "next/cache";
 import IUser from "../@types/IUser";
-import { Router, useRouter } from "next/router";
+import { apiURL } from "../settings";
 
 export default async function deleteUser(id: number) {
     try {
         const response = await fetch(
-            `https://jsonplaceholder.typicode.com/users/${id}`,
+            `${apiURL}/users/${id}`,
             {
                 method: "DELETE",
             }

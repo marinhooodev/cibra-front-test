@@ -1,6 +1,8 @@
+import { apiURL } from "../settings"
+
 export default async function getUsers() {
     try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users")
+        const response = await fetch(`${apiURL}/users`)
 
         const data = await response.json()
 

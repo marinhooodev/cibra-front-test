@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
                                 </li>
                                 <li>
                                     <IoAdd className="text-4xl text-primary-500 mr-2" />
-                                    <Link href="/create-user" onClick={() => setIsOpen(false)}>Adicionar Usuários</Link>
+                                    <Link href="/create-user" onClick={() => setIsOpen(false)}>Create Users</Link>
                                 </li>
                             </ul>
                         </nav>
