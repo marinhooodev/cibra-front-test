@@ -9,6 +9,8 @@ Este é o repositório do projeto de teste para a vaga de Front-end. O projeto f
 - **Next.js 📦**: Framework React para construção de aplicações com renderização do lado do servidor (SSR), geração de páginas estáticas (SSG) e criação de APIs RESTful.
 - **TypeScript 🔵**: Superset do JavaScript que adiciona tipagem estática, garantindo maior segurança no desenvolvimento.
 - **Tailwind CSS 🌊**: Framework CSS utilitário, que oferece classes pré-definidas para construir designs rapidamente.
+- **Sass  🧵**: Pré-processador CSS que permite o uso de variáveis, aninhamento e outras funcionalidades avançadas para facilitar a escrita de estilos.
+- **CSS Modules 💻**: Técnica para escopo local de CSS, evitando conflitos entre classes e permitindo um estilo modular e reutilizável.
 - **React Hook Form 📝**: Biblioteca para gerenciar formulários em React com foco em simplicidade e performance.
 - **Radix UI 📱**: Conjunto de componentes acessíveis e estilizados para React, que facilita a construção de UIs com um bom controle de acessibilidade e personalização.
 - **Yarn 🧶**: Gerenciador de pacotes para JavaScript, utilizado para controlar as dependências do projeto.
