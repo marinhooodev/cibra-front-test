@@ -5,6 +5,7 @@ import "@radix-ui/themes/styles.css";
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
 import { Theme } from "@radix-ui/themes";
+import { Toaster } from "react-hot-toast";
 
 const dm_sans = DM_Sans({
     weight: [
@@ -38,11 +39,12 @@ export default function RootLayout({
                 <Theme accentColor="lime">
                     <div className={`${dm_sans.className} mx-auto min-h-screen flex flex-col`}>
                         <AppHeader />
-                        <main className="flex-1 mx-auto overflow-x-hidden">
+                        <main className="flex-1 mx-auto">
                             {children}
                         </main>
                         <AppFooter />
                     </div>
+                    <Toaster />
                 </Theme>
             </body>
         </html>
