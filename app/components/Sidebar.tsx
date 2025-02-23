@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
                 }} />
                         </div>
                     </div>
-                    <div className={`${styles.menu} flex-1`}>
+                    <div className={`${styles.menu} flex-1 flex justify-center`}>
                         <nav className="mt-10">
                             <ul>
                                 <li>
@@ -37,10 +37,6 @@ const Sidebar: React.FC = () => {
                                 <li>
                                     <IoAdd className="text-4xl text-primary-500 mr-2" />
                                     <Link href="/">Adicionar Usuários</Link>
-                                </li>
-                                <li>
-                                    <IoTrash className="text-4xl text-primary-500 mr-2" />
-                                    <Link href="/">Remover Usuários</Link>
                                 </li>
                             </ul>
                         </nav>
