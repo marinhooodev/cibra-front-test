@@ -1,53 +1,65 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import UserCard from "./components/UserCard";
 import getUsers from "./services/getUsers";
 import { Section } from "@radix-ui/themes";
+import IUser from "./@types/IUser";
+import deleteUser from "./services/deleteUser";
 
 export default function Home() {
+    const [users, setUsers] = useState([]);
 
-  const [users, setUsers] = useState([])
+    useEffect(() => {
+        const localUsers = localStorage.getItem("users");
 
-  useEffect(() => {
+        if (localUsers) {
+            const usersArray: [] = JSON.parse(localUsers);
+            console.log(usersArray);
 
-    const localUsers = localStorage.getItem("users")
+            if (usersArray.length) {
+                setUsers(usersArray);
+                return;
+            }
+        }
 
-    if(localUsers) {
-      const usersArray: [] = JSON.parse(localUsers)
-      console.log(usersArray)
-      
-      if(usersArray.length) {
-        setUsers(usersArray)
-        return
-      }
-    }
+        const fetchUsers = async () => {
+            const data = await getUsers();
 
-    const fetchUsers = async () => {
+            if (!data.success) {
+            }
 
-      const data = await getUsers()
+            setUsers(data.users);
+        };
 
-      if(!data.success) {
-        
-      }
+        fetchUsers();
+    }, []);
 
-    }
+    const handleDelete = async (id: number) => {
+        const response = await deleteUser(id);
 
-    fetchUsers()
+        if (response.success) {
+            const updatedUsers = localStorage.getItem("users");
 
-  }, [])
+            if (updatedUsers) {
+                setUsers(JSON.parse(updatedUsers));
+                return;
+            }
+        }
+    };
 
-  // usar mais radix, e tipar o retorno de USER
-
-  return (
-<Section>
-      {
-        users?.map((user: any) => (
-          <div key={user.id} className="m-5">
-            <UserCard userFirstNameLetter={user.name.slice(0, 1)} userCompanyName={user.company.name} />
-          </div>
-        ))
-      }
-</Section>
-  );
+    return (
+        <Section>
+            {users?.map((user: IUser) => (
+                <div key={user.id} className="m-5">
+                    <UserCard
+                        name={user.name}
+                        company={user.company}
+                        id={user.id}
+                        onDeleteUser={handleDelete}
+                    />
+                </div>
+            ))}
+        </Section>
+    );
 }
