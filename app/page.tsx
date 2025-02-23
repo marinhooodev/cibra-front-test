@@ -6,30 +6,30 @@ import getUsers from "./services/getUsers";
 import { Button, Flex, Section } from "@radix-ui/themes";
 import IUser from "./@types/IUser";
 import deleteUser from "./services/deleteUser";
+import SearchBar from "./components/SearchBar";
 
 export default function Home() {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState<IUser[]>([]);
+    const [filteredUsers, setFilteredUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
         const localUsers = localStorage.getItem("users");
 
         if (localUsers) {
-            const usersArray: [] = JSON.parse(localUsers);
-            console.log(usersArray);
-
+            const usersArray: IUser[] = JSON.parse(localUsers);
             if (usersArray.length) {
                 setUsers(usersArray);
+                setFilteredUsers(usersArray);
                 return;
             }
         }
 
         const fetchUsers = async () => {
             const data = await getUsers();
-
-            if (!data.success) {
+            if (data.success) {
+                setUsers(data.users);
+                setFilteredUsers(data.users);
             }
-
-            setUsers(data.users);
         };
 
         fetchUsers();
@@ -42,17 +42,29 @@ export default function Home() {
             const updatedUsers = localStorage.getItem("users");
 
             if (updatedUsers) {
-                setUsers(JSON.parse(updatedUsers));
+                const newUsers = JSON.parse(updatedUsers);
+                setUsers(newUsers);
+                setFilteredUsers(newUsers);
                 return;
             }
-            return;
         }
+    };
+
+    const handleSearch = (query: string) => {
+        const lowercasedQuery = query.toLowerCase();
+        const filtered = users.filter((user) =>
+            user.name.toLowerCase().includes(lowercasedQuery)
+        );
+        setFilteredUsers(filtered);
     };
 
     return (
         <Section className="mx-auto">
+            {/* Search Bar */}
+            <SearchBar onSearch={handleSearch} />
+
             {/* Users Cards */}
-            {users?.map((user: IUser) => (
+            {filteredUsers.map((user) => (
                 <div key={user.id} className="m-5">
                     <UserCard
                         name={user.name}
@@ -64,14 +76,14 @@ export default function Home() {
             ))}
 
             {/* Handle Empty Users */}
-            {!users.length && (
+            {!filteredUsers.length && (
                 <Flex
                     gap="3"
                     justify="center"
                     direction="column"
                     align="center"
                 >
-                    <p className="p-3 text-center">No users found! Reload the page to get users</p>
+                    <p className="p-3 text-center">No users found! Try another search or reload the page.</p>
                     <Button
                         variant="classic"
                         onClick={() => {
