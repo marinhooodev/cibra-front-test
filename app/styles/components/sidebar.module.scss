@@ -1,13 +1,16 @@
 .sidebar {
     position: absolute;
+    display: none;
     z-index: 100;
     width: 100%;
     inset: 0;
     transform: translateX(100%);
     background: white;
     transition: 0.1s all ease;
+    transition-delay: 0.5s;
 
     &.open {
+        display: block;
         transform: translateX(0);
     }
     

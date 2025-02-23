@@ -1,23 +1,9 @@
-import {
-    Avatar,
-    Box,
-    Button,
-    Card,
-    Flex,
-    Text,
-} from "@radix-ui/themes";
+import { Avatar, Box, Button, Card, Flex, Text } from "@radix-ui/themes";
 import React from "react";
 import DeleteUser from "./DeleteUser";
+import IUser from "../@types/IUser";
 
-interface UserCardProps {
-    userFirstNameLetter: string;
-    userCompanyName: string;
-}
-
-const UserCard: React.FC<UserCardProps> = ({
-    userFirstNameLetter,
-    userCompanyName,
-}) => {
+const UserCard: React.FC<Partial<IUser> & {onDeleteUser: (id: number) => void}> = ({ name, company, id, onDeleteUser }) => {
     return (
         <Box maxWidth="300px">
             <Card className="w-64 shadow-xl">
@@ -26,20 +12,20 @@ const UserCard: React.FC<UserCardProps> = ({
                         size="3"
                         src=""
                         radius="full"
-                        fallback={userFirstNameLetter}
+                        fallback={name?.slice(0, 1) as string}
                     />
                     <Box>
                         <Text as="div" size="2" weight="bold">
-                            Teodros Girmay
+                            {name}
                         </Text>
                         <Text as="div" size="2" color="gray">
-                            <b>Company: </b> {userCompanyName}
+                            <b>Company: </b> {company?.name}
                         </Text>
                     </Box>
                 </Flex>
                 <Flex gap="3" justify="between" className="mt-5">
                     <Button>View Profile</Button>
-                    <DeleteUser />
+                    <DeleteUser id={id as number} onDeleteUser={onDeleteUser} />
                 </Flex>
             </Card>
         </Box>
