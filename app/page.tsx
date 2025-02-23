@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import UserCard from "./components/UserCard";
 import getUsers from "./services/getUsers";
+import { Section } from "@radix-ui/themes";
 
 export default function Home() {
 
@@ -36,16 +37,17 @@ export default function Home() {
 
   }, [])
 
+  // usar mais radix, e tipar o retorno de USER
+
   return (
-    <div>
+<Section>
       {
         users?.map((user: any) => (
-
-          <li key={user.id}>
-            <UserCard userFirstNameLetter={user.name.slice(0, 1)} />
-          </li>
+          <div key={user.id} className="m-5">
+            <UserCard userFirstNameLetter={user.name.slice(0, 1)} userCompanyName={user.company.name} />
+          </div>
         ))
       }
-    </div>
+</Section>
   );
 }
