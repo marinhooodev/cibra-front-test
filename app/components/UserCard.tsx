@@ -2,6 +2,7 @@ import { Avatar, Box, Button, Card, Flex, Text } from "@radix-ui/themes";
 import React from "react";
 import DeleteUser from "./DeleteUser";
 import IUser from "../@types/IUser";
+import Link from "next/link";
 
 const UserCard: React.FC<Partial<IUser> & {onDeleteUser: (id: number) => void}> = ({ name, company, id, onDeleteUser }) => {
     return (
@@ -24,7 +25,7 @@ const UserCard: React.FC<Partial<IUser> & {onDeleteUser: (id: number) => void}> 
                     </Box>
                 </Flex>
                 <Flex gap="3" justify="between" className="mt-5">
-                    <Button>View Profile</Button>
+                    <Button><Link href={`/user/${id}`}>View Profile</Link></Button>
                     <DeleteUser id={id as number} onDeleteUser={onDeleteUser} />
                 </Flex>
             </Card>

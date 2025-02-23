@@ -60,20 +60,23 @@ export default function Home() {
 
     return (
         <Section className="mx-auto">
+            <h1 className="text-center text-4xl font-semibold mb-10">Cibra Front-end Test - Users</h1>
             {/* Search Bar */}
             <SearchBar onSearch={handleSearch} />
 
             {/* Users Cards */}
-            {filteredUsers.map((user) => (
-                <div key={user.id} className="m-5">
-                    <UserCard
-                        name={user.name}
-                        company={user.company}
-                        id={user.id}
-                        onDeleteUser={handleDelete}
-                    />
-                </div>
-            ))}
+            <div className="flex flex-wrap justify-center items-stretch max-w-2xl">
+                {filteredUsers.map((user) => (
+                    <div key={user.id} className="m-5 flex flex-col justify-center items-stretch">
+                        <UserCard
+                            name={user.name}
+                            company={user.company}
+                            id={user.id}
+                            onDeleteUser={handleDelete}
+                        />
+                    </div>
+                ))}
+            </div>
 
             {/* Handle Empty Users */}
             {!filteredUsers.length && (
