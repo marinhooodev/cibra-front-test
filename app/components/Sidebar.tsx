@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
                             height={60}
                             alt="Cibra Logo"
                         />
-                        <div className="flex justify-center in-checked:">
+                        <div className="flex justify-center cursor-pointer">
                             <IoClose  className="text-4xl" onClick={() => {
                     setIsOpen(!isOpen);
                 }} />
@@ -53,7 +53,7 @@ const Sidebar: React.FC = () => {
 
             {/* Hamburger Menu */}
             <div
-                className="hamburguer"
+                className="hamburguer cursor-pointer"
                 onClick={() => {
                     setIsOpen(!isOpen);
                 }}
