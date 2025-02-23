@@ -8,7 +8,7 @@ const DeleteUser = ({id, onDeleteUser}: {id: number, onDeleteUser: (id: number) 
     return (
         <AlertDialog.Root>
             <AlertDialog.Trigger>
-                <Button variant="outline" color="red">
+                <Button variant="outline" color="red" className="cursor-pointer">
                     <IoTrash />
                     Delete
                 </Button>
@@ -21,16 +21,18 @@ const DeleteUser = ({id, onDeleteUser}: {id: number, onDeleteUser: (id: number) 
 
                 <Flex gap="3" mt="4" justify="end">
                     <AlertDialog.Cancel>
-                        <Button variant="soft" color="gray">
+                        <Button variant="soft" color="gray" className="cursor-pointer">
                             Cancel
                         </Button>
                     </AlertDialog.Cancel>
                     <AlertDialog.Action>
-                        <Button variant="solid" color="red" onClick={() => {
-                            onDeleteUser(id)
-                        }}>
-                            Delete
-                        </Button>
+                        <div className="cursor-pointer">
+                            <Button variant="solid" color="red" className="!cursor-pointer" onClick={() => {
+                                onDeleteUser(id)
+                            }}>
+                                Delete
+                            </Button>
+                        </div>
                     </AlertDialog.Action>
                 </Flex>
             </AlertDialog.Content>

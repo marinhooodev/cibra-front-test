@@ -7,6 +7,7 @@ import { Button, Flex, Section } from "@radix-ui/themes";
 import IUser from "./@types/IUser";
 import deleteUser from "./services/deleteUser";
 import SearchBar from "./components/SearchBar";
+import toast from "react-hot-toast";
 
 export default function Home() {
     const [users, setUsers] = useState<IUser[]>([]);
@@ -26,10 +27,12 @@ export default function Home() {
 
         const fetchUsers = async () => {
             const data = await getUsers();
-            if (data.success) {
-                setUsers(data.users);
-                setFilteredUsers(data.users);
+            if (!data.success) {
+               toast.error(data.err as string)
+                return
             }
+            setUsers(data.users);
+            setFilteredUsers(data.users);
         };
 
         fetchUsers();
@@ -45,7 +48,7 @@ export default function Home() {
                 const newUsers = JSON.parse(updatedUsers);
                 setUsers(newUsers);
                 setFilteredUsers(newUsers);
-                return;
+                return toast.success("User successfuly deleted!");
             }
         }
     };
@@ -92,6 +95,7 @@ export default function Home() {
                         onClick={() => {
                             window.location.reload();
                         }}
+                        className="cursor-pointer"
                     >
                         Reload Page
                     </Button>

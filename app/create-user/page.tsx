@@ -6,6 +6,8 @@ import * as RadixLabel from "@radix-ui/react-label";
 import { Button } from "@radix-ui/themes";
 import IUser from "../@types/IUser";
 import toast from "react-hot-toast";
+import { IoCheckmark } from "react-icons/io5";
+import { apiURL } from "../settings";
 
 const CreateUserForm: React.FC = () => {
     const {
@@ -16,16 +18,13 @@ const CreateUserForm: React.FC = () => {
 
     const onSubmit: SubmitHandler<IUser> = async (data) => {
         try {
-            const response = await fetch(
-                "https://jsonplaceholder.typicode.com/users",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                }
-            );
+            const response = await fetch(`${apiURL}/users`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
 
             const user = await response.json();
 
@@ -35,21 +34,32 @@ const CreateUserForm: React.FC = () => {
                 ? JSON.parse(localUsers)
                 : [];
 
+            const maxId =
+                usersArray.length > 0
+                    ? Math.max(
+                          ...usersArray.map((user: { id: number }) => user.id)
+                      )
+                    : 0;
+
             const newUser = {
                 ...user,
-                id: usersArray.length + 1,
+                id: maxId + 1,
             };
 
             usersArray.push(newUser);
 
             localStorage.setItem("users", JSON.stringify(usersArray));
+
+            toast.success("User successfuly created!", {
+                icon: <IoCheckmark className="text-2xl text-primary-500" />,
+            });
         } catch (error) {
             toast.error(`An error ocurred while creating user`);
         }
     };
 
     return (
-        <div className="max-w-lg mx-auto my-8 p-6 bg-white rounded-lg shadow-2xl">
+        <div className="w-[280px] sm:w-[550px] md:w-[650px] my-8 p-6 bg-white rounded-lg shadow-2xl">
             <h2 className="text-2xl font-semibold text-center mb-6">
                 Create User
             </h2>
@@ -144,7 +154,7 @@ const CreateUserForm: React.FC = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="text-center">
+                <div className="text-center cursor-pointer">
                     <Button variant="classic" type="submit" size="3">
                         Create
                     </Button>
