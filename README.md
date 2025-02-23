@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Cibra Front Test
 
-First, run the development server:
+Este é o repositório do projeto de teste para a vaga de Front-end. O projeto foi desenvolvido com as tecnologias mais recentes e voltado para a criação de uma aplicação simples de gerenciamento de usuários.
+
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário interativas e dinâmicas.
+- **Next.js**: Framework React para construção de aplicações com renderização do lado do servidor (SSR), geração de páginas estáticas (SSG) e criação de APIs RESTful.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática, garantindo maior segurança no desenvolvimento.
+- **Tailwind CSS**: Framework CSS utilitário, que oferece classes pré-definidas para construir designs rapidamente.
+- **React Hook Form**: Biblioteca para gerenciar formulários em React com foco em simplicidade e performance.
+- **Radix UI**: Conjunto de componentes acessíveis e estilizados para React, que facilita a construção de UIs com um bom controle de acessibilidade e personalização.
+- **Yarn**: Gerenciador de pacotes para JavaScript, utilizado para controlar as dependências do projeto.
+- **react-hot-toast**: Biblioteca para mostrar notificações de forma simples e sem configurações complexas.
+- **react-icons**: Conjunto de ícones para facilitar a inclusão de ícones em sua aplicação.
+
+## Funcionalidades Implementadas
+
+- **Listagem de Usuários**: Exibe uma lista de usuários com informações de nome, empresa e outras características.
+- **Criação de Usuários**: Permite adicionar um novo usuário utilizando um formulário validado com `React Hook Form` e persistente via `localStorage`.
+- **Deleção de Usuários**: Funcionalidade para remover um usuário da lista, com confirmação de ação.
+- **Persistência com LocalStorage**: Os usuários são armazenados no `localStorage`, garantindo que a lista de usuários persista mesmo após o recarregamento da página.
+- **Responsividade**: A aplicação é completamente responsiva, utilizando o Tailwind CSS para garantir uma boa experiência em diferentes dispositivos.
+
+## Como Rodar
+
+1. Clone o repositório:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/marinhooodev/cibra-front-test.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navegue até o diretório do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd cibra-front-test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Instale as dependências com o Yarn:
 
-## Learn More
+```bash
+yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Inicie o servidor de desenvolvimento:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Acesse a aplicação em `http://localhost:5173`.
 
-## Deploy on Vercel
+## Estrutura do Projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **pages**: Contém as páginas principais da aplicação, como a listagem de usuários e a criação de novos usuários.
+- **components**: Contém componentes reutilizáveis, como o `UserCard`.
+- **services**: Funções auxiliares para interagir com os dados, como adicionar e deletar usuários.
+- **@types**: Tipagens do TypeScript para os dados manipulados, como a interface `IUser`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notas Finais
+
+Este projeto foi feito com foco na eficiência e simplicidade, utilizando boas práticas de desenvolvimento e garantindo que a aplicação seja acessível e responsiva. A escolha das tecnologias se deu pela sua popularidade e facilidade de integração no ecossistema React.
+
+Para quaisquer dúvidas ou melhorias, fique à vontade para abrir uma issue ou enviar um pull request.
+
+Obrigado pela oportunidade de participar deste processo seletivo!
+
