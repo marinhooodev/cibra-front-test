@@ -32,11 +32,11 @@ const Sidebar: React.FC = () => {
                             <ul>
                                 <li>
                                     <IoHome className="text-4xl text-primary-400 mr-2" />
-                                    <Link href="/">Home</Link>
+                                    <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
                                 </li>
                                 <li>
                                     <IoAdd className="text-4xl text-primary-500 mr-2" />
-                                    <Link href="/">Adicionar Usuários</Link>
+                                    <Link href="/create-user" onClick={() => setIsOpen(false)}>Adicionar Usuários</Link>
                                 </li>
                             </ul>
                         </nav>

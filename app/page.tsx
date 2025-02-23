@@ -45,7 +45,7 @@ export default function Home() {
                 setUsers(JSON.parse(updatedUsers));
                 return;
             }
-            return
+            return;
         }
     };
 
@@ -62,16 +62,26 @@ export default function Home() {
                     />
                 </div>
             ))}
-           
-           {/* Handle Empty Users */}
-           {!users.length && <Flex gap="3" justify="center" direction="column" align="center"> 
-                <p>No users found! Reload the page to get users</p>
-                <Button variant="classic" onClick={() => {
-                    window.location.reload()
-                }}>
-                    Reload Page
-                </Button>
-            </Flex> }
+
+            {/* Handle Empty Users */}
+            {!users.length && (
+                <Flex
+                    gap="3"
+                    justify="center"
+                    direction="column"
+                    align="center"
+                >
+                    <p className="p-3 text-center">No users found! Reload the page to get users</p>
+                    <Button
+                        variant="classic"
+                        onClick={() => {
+                            window.location.reload();
+                        }}
+                    >
+                        Reload Page
+                    </Button>
+                </Flex>
+            )}
         </Section>
     );
 }
