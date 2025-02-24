@@ -16,6 +16,7 @@ Este é o repositório do projeto de teste para a vaga de Front-end. O projeto f
 - **Yarn 🧶**: Gerenciador de pacotes para JavaScript, utilizado para controlar as dependências do projeto.
 - **react-hot-toast 🔥**: Biblioteca para mostrar notificações de forma simples e sem configurações complexas.
 - **react-icons 🎨**: Conjunto de ícones para facilitar a inclusão de ícones em sua aplicação.
+- **Cypress 🧪**: Framework de testes end-to-end para garantir o funcionamento correto das funcionalidades da aplicação.
 
 ## Funcionalidades Implementadas⚡
 
@@ -25,6 +26,28 @@ Este é o repositório do projeto de teste para a vaga de Front-end. O projeto f
 - **Barra de Pesquisa 🔍**: Implementação de uma barra de pesquisa que permite filtrar os usuários pelo nome, proporcionando uma navegação mais eficiente.
 - **Persistência com LocalStorage 💾**: Os usuários são armazenados no `localStorage`, garantindo que a lista de usuários persista mesmo após o recarregamento da página.
 - **Responsividade e Mobile-First 📱**: A aplicação foi desenvolvida com uma abordagem mobile-first, utilizando o Tailwind CSS para garantir uma boa experiência em diferentes dispositivos, começando sempre pela experiência móvel.
+- **Testes End-to-End com Cypress 🧪**: A aplicação conta com testes end-to-end utilizando Cypress para garantir que as funcionalidades principais estejam funcionando corretamente.
+
+
+## Testes End-to-End com Cypress 🧪
+
+Para garantir que o fluxo da aplicação esteja funcionando corretamente, implementei testes end-to-end utilizando o Cypress. O Cypress é uma poderosa ferramenta para testar a aplicação de ponta a ponta, garantindo que as interações do usuário estejam funcionando conforme esperado.
+
+### Como executar os testes:
+
+1. Certifique-se de ter as dependências instaladas, caso ainda não tenha feito isso:
+
+   ```bash
+   yarn install
+   ```
+
+2. Para rodar os testes end-to-end, execute o seguinte comando:
+
+   ```bash
+   yarn cypress open
+   ```
+
+3. O Cypress será aberto em modo interativo. Selecione o arquivo `form.cy.ts` para rodar os testes que verificam a criação de usuários e validações do formulário.
 
 
 ## Demo 🎬
