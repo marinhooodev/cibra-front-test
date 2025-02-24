@@ -14,6 +14,7 @@ const CreateUserForm: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors },
+        reset
     } = useForm<IUser>();
 
     const onSubmit: SubmitHandler<IUser> = async (data) => {
@@ -53,6 +54,8 @@ const CreateUserForm: React.FC = () => {
             toast.success("User successfuly created!", {
                 icon: <IoCheckmark className="text-2xl text-primary-500" />,
             });
+
+            reset()
         } catch (error) {
             toast.error(`An error ocurred while creating user`);
         }

@@ -15,12 +15,16 @@ const Sidebar: React.FC = () => {
             <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
                 <div className={`${styles.content} `}>
                     <div className={`${styles.header} shadow-2xl`}>
+                    <Link href="/" className="!cursor-pointer" onClick={() => {
+                    setIsOpen(!isOpen);
+                }}>
                         <Image
                             src="/assets/img/cibra-logo.webp"
                             width={150}
                             height={60}
                             alt="Cibra Logo"
                         />
+                        </Link>
                         <div className="flex justify-center cursor-pointer">
                             <IoClose  className="text-4xl" onClick={() => {
                     setIsOpen(!isOpen);
